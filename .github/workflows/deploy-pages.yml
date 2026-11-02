@@ -1,0 +1,53 @@
+# Every push to main builds the static site (npm run build -> out/) and publishes it on GitHub Pages.
+# Custom domain (baksheeshtech.com) is set in the repo: Settings -> Pages -> Custom domain.
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# one deploy at a time; a newer push replaces a queued one
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+
+      # GitHub Pages serves static files only: drop the Hostinger/Netlify-only files and
+      # swap the PHP link tracker and the old portfolio.html URL for plain HTML redirects
+      - name: Adjust output for GitHub Pages
+        run: |
+          rm -f out/go/index.php out/.htaccess out/_redirects
+          cp scripts/github-pages/go.html out/go/index.html
+          cp scripts/github-pages/portfolio.html out/portfolio.html
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

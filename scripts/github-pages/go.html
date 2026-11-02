@@ -1,0 +1,22 @@
+<!doctype html>
+<!-- GitHub Pages stand-in for public/go/index.php: same allowed targets, no click logging.
+     https://baksheeshtech.com/go/?c=<code>&to=portfolio|resume|cv|home -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Baksheesh Tech</title>
+  <noscript><meta http-equiv="refresh" content="0; url=/"></noscript>
+  <script>
+    var targets = {
+      portfolio: "/portfolio/",
+      resume: "/resume/",
+      cv: "/Baksheesh-Bhardwaj-Web-Developer-CV.pdf",
+      home: "/"
+    };
+    var to = new URLSearchParams(location.search).get("to");
+    location.replace(Object.prototype.hasOwnProperty.call(targets, to) ? targets[to] : "/");
+  </script>
+</head>
+<body><a href="/">baksheeshtech.com</a></body>
+</html>
