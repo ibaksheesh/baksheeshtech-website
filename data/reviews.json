@@ -1,0 +1,10 @@
+{
+  "_how": [
+    "Sirf asli client reviews daalo, aur client se poochh lo ki website par naam ke saath dikha sakte hain.",
+    "Client haan bole to us review me \"approved\": true likho. Bina approved ke review website par nahi aata.",
+    "Fields: name, role, company, text (client ke apne words), stars (1-5), photo (optional: file public/assets/reviews/ me rakho aur yahan likho assets/reviews/rahul.jpg), project (optional, live website ka link).",
+    "Example: { \"name\": \"Client Name\", \"role\": \"founder\", \"company\": \"Company\", \"text\": \"...\", \"stars\": 5, \"photo\": \"\", \"project\": \"https://...\", \"approved\": true }",
+    "Phir site dobara build karo: npm run build"
+  ],
+  "reviews": []
+}
