@@ -71,6 +71,16 @@ Kuch bhi badalne ke baad: local par `npm run dev` se check karo, phir dobara dep
 
 ## Deploy (free)
 
+### GitHub Pages (abhi yahi chal raha hai)
+Repo: https://github.com/ibaksheesh/baksheeshtech-website — `main` par har `git push` ke baad
+`.github/workflows/deploy-pages.yml` site build karke GitHub Pages par live kar deta hai (1-2 minute).
+- Custom domain: repo **Settings → Pages → Custom domain** = `baksheeshtech.com`
+- DNS (Hostinger DNS zone): `@` ke 4 A records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`,
+  4 AAAA records `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`,
+  aur `www` CNAME → `ibaksheesh.github.io`. MX aur SPF (TXT) email ke liye hain, unhe mat chhedna.
+- Pages sirf static files chalata hai: `public/go/index.php` (click tracker) aur `.htaccess` wahan nahi chalte.
+  Workflow inki jagah `scripts/github-pages/` ke plain HTML redirects daal deta hai (`/go/` link chalta hai, click count nahi hota).
+
 ### Vercel
 1. Code GitHub par daalo (ya Vercel CLI se folder upload karo)
 2. vercel.com → **Add New → Project** → repo import karo
