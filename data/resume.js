@@ -4,11 +4,11 @@ export const RESUME = {
   name: "Baksheesh Bhardwaj",
   title: "Web & App Developer · Designer",
   // ?v= changes whenever the PDF is re-made, so browsers never show an old cached copy
-  pdf: "/Baksheesh-Bhardwaj-Web-Developer-CV.pdf?v=2026-10-15",
+  pdf: "/Baksheesh-Bhardwaj-Web-Developer-CV.pdf?v=2026-11-12",
 
   // quick facts under the intro
   facts: [
-    { value: "5+", label: "years of experience" },
+    { value: "6", label: "years of experience" },
     { value: "5", label: "companies" },
     { value: "web · app", label: "video · ai automation" },
   ],
@@ -22,11 +22,11 @@ export const RESUME = {
   },
 
   profile:
-    "I'm a web and app developer with 5+ years of experience building fast, responsive websites and mobile apps for businesses in India and abroad. I work across React, Next.js, WordPress and Shopify, design in Figma and Canva, edit promo videos, and set up AI, WhatsApp and email automations that answer, follow up and book for a business. I take a project from design to launch, with clean code and on-page SEO.",
+    "I'm a web and app developer with 6 years of experience building fast, responsive websites and mobile apps for businesses in India and abroad. I work across React, Next.js, WordPress and Shopify, design in Figma and Canva, edit promo videos, and set up AI, WhatsApp and email automations that answer, follow up and book for a business. I take a project from design to launch, with clean code and on-page SEO.",
 
   employment: [
     {
-      dates: "Mar 2025 – Present",
+      dates: "Mar 2025 – Oct 2026",
       role: "Web Developer",
       company: "Grupo Sineva",
       place: "",
